@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="systemmonitor.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
-</AnchorPane>
+<GridPane alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="800.0" minWidth="10.0" prefWidth="660.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="562.0" minWidth="10.0" prefWidth="212.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints prefHeight="515.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="490.0" prefWidth="212.0" spacing="10.0" GridPane.columnIndex="1">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="225.0" text="Motor Panel" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <GridPane vgap="5.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.0" minWidth="97.0" prefWidth="110.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="81.0" minWidth="10.0" prefWidth="68.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints vgrow="SOMETIMES" />
+                  <RowConstraints vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Motor ID:" />
+                  <Label text="Feedback Camera:" GridPane.rowIndex="1" />
+                  <Label text="Auto Feedback:" GridPane.rowIndex="2" />
+                  <Label text="LED indicator:" GridPane.rowIndex="3" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Position:" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                  <ChoiceBox fx:id="MotorIDChoice" prefHeight="60.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <ChoiceBox fx:id="MotorFeedbackCameraChoice" prefHeight="60.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <ToggleButton fx:id="MotorAutoToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="False" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <ToggleButton fx:id="MotorLEDToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="False" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <Button fx:id="MotorPositionPlus10Button" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" text="+10" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                  <Button fx:id="MotorPositionPlus1Button" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" text="+1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
+                  <Button fx:id="MotorPositionMinus1Button" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" text="-1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
+                  <Button fx:id="MotorPositionMinus10Button" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" text="-10" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
+                  <HBox prefHeight="60.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="13">
+                     <children>
+                        <Button fx:id="PrevMotorButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Prev Motor" />
+                        <Button fx:id="NextMotorButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" text="Next Motor" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="MotorPostionText" alignment="CENTER" text="0" GridPane.columnSpan="2" GridPane.rowIndex="5" GridPane.rowSpan="2">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="515.0" prefWidth="515.0" spacing="10.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="712.0" text="Camera Panel" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <ImageView fitHeight="480.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</GridPane>
