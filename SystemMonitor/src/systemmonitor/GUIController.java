@@ -21,40 +21,41 @@ import javafx.scene.control.Label;
  * @author fatcloud
  */
 public class GUIController implements Initializable {
-    HelloThread t1;
+    
+    // motor panel
     @FXML private ChoiceBox MotorIDChoice;
+    @FXML private ChoiceBox MotorFeedbackCameraChoice;
     
-    
-    @FXML
-    private Label label;
-    
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
+    @FXML private void handleButtonAction(ActionEvent event) {
         Button btn = (Button) event.getSource();
         String btnText = btn.getText();
-        if( btnText.equals("+10") )
-            t1.terminate();
-        else if( btnText.equals("+1") ) {
-            t1 = new HelloThread();
-            t1.setName("Oh hahahaha I am a thread");
-            t1.start();
-        } else if( btnText.equals("-1") )
-            MotorIDChoice.setItems(FXCollections.observableArrayList("Energy Tuner","autocorelator"));
-            
         
+        byte stepToGo = 0;
+        if( btnText.equals("+10") ) {
+            stepToGo = 10;
+        } else if( btnText.equals("+1") ) {
+            stepToGo = 1;
+        } else if( btnText.equals("-1") ){
+            stepToGo = -1;
+        } else if( btnText.equals("-10") ){
+            stepToGo = -10;
+        }
         
-    }
-    
-    @FXML
-    private void handleButtonAction2(ActionEvent event) {
-        System.out.println("maomao");
+        int id = (int)MotorIDChoice.getValue();
         
     }
     
+    /*
+    HelloThread t1;
+    t1 = new HelloThread();
+    t1.start();
+    t1.terminate();
+    */
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("haha");
+        MotorIDChoice.setItems(FXCollections.observableArrayList(0,1,2,3));
+        MotorIDChoice.setValue( MotorIDChoice.getItems().get(0) );
     }    
-    
 }
