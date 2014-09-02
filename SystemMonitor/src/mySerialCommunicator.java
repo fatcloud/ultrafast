@@ -120,7 +120,7 @@ public class mySerialCommunicator implements SerialPortEventListener {
     }
 
     public static void main(String[] args) throws Exception {
-        SerialTest main = new SerialTest();
+        mySerialCommunicator main = new mySerialCommunicator();
         main.initialize();
         Thread t = new Thread() {
             public void run() {
